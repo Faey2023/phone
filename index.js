@@ -103,4 +103,4 @@ const phoneDetails = (phone) => {
   my_modal_1.showModal();
 };
 
-loadPhone();
+// loadPhone();
