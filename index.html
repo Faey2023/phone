@@ -33,7 +33,15 @@
         />
         <button class="btn btn-accent" onclick="handleSearch()">Search</button>
       </section>
+      <!-- search result  -->
       <section class="mt-5 text-center items-center">
+        <!-- loading  -->
+        <div>
+          <span
+            id="loading"
+            class="loading loading-infinity loading-lg bg-accent hidden"
+          ></span>
+        </div>
         <div
           id="phone-container"
           class="grid grid-cols-1 md:grid-cols-2 mb-5 lg:grid-cols-3 gap-4"
