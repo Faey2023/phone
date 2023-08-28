@@ -8,6 +8,15 @@ const displayPhones = (phones) => {
 
   //clear search bar
   phoneContainer.textContent = "";
+  //show all button
+  const showAll = document.getElementById("show-all");
+  if (phones.length > 9) {
+    showAll.classList.remove("hidden");
+  } else {
+    showAll.classList.add("hidden");
+  }
+  //slice displays only 1st 9
+  phones = phones.slice(0, 9);
   phones.forEach((phone) => {
     console.log(phone);
     const phoneCard = document.createElement("div");

@@ -20,11 +20,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body id="g">
-    <header class="container mx-auto">
+    <header class="container mx-auto mt-5">
       <h1 class="text-6xl text-center">Search your phone here</h1>
     </header>
     <main class="container mx-auto">
-      <section class="container mx-auto items-center text-center">
+      <section class="container mx-auto items-center text-center mt-5">
         <input
           id="search-field"
           type="text"
@@ -33,11 +33,16 @@
         />
         <button class="btn btn-accent" onclick="handleSearch()">Search</button>
       </section>
-      <section>
+      <section class="mt-5 text-center items-center">
         <div
           id="phone-container"
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+          class="grid grid-cols-1 md:grid-cols-2 mb-5 lg:grid-cols-3 gap-4"
         ></div>
+
+        <button id="show-all" class="btn btn-accent hidden" onclick>
+          Show All
+        </button>
+        <div class="text-center items-center mt-5"></div>
       </section>
     </main>
     <footer></footer>
