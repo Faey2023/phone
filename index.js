@@ -89,7 +89,7 @@ const phoneDetails = (phone) => {
 
   const showDetailContainer = document.getElementById("show-detail-container");
   showDetailContainer.innerHTML = `
-  <img src="${phone.image}" alt="" />
+  <img src="${phone.image}">
   <p><strong>Storage: </strong>${phone.mainFeatures.storage}</p>
 <p><strong>Display Size: </strong>${phone.mainFeatures.displaySize}</p>
 <p><strong>Chipset: </strong>${phone.mainFeatures.chipSet}</p>
