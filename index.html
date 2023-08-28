@@ -23,25 +23,24 @@
     <header>
       <h1 class="text-6xl">Hunting Phone</h1>
     </header>
-    <main>
+    <main class="container mx-auto">
       <section>
-        <div id="phone-container"></div>
+        <input
+          id="search-field"
+          type="text"
+          placeholder="Search..."
+          class="input input-bordered w-full max-w-xs"
+        />
+        <button class="btn btn-accent" onclick="handleSearch()">Search</button>
+      </section>
+      <section>
+        <div
+          id="phone-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+        ></div>
       </section>
     </main>
     <footer></footer>
     <script src="index.js"></script>
   </body>
 </html>
-
-<!-- <div class="card w-96 bg-base-100 shadow-xl">
-  <figure class="px-10 pt-10">
-    <img src="" alt="Shoes" class="rounded-xl" />
-  </figure>
-  <div class="card-body items-center text-center">
-    <h2 class="card-title"></h2>
-    <p></p>
-    <div class="card-actions">
-      <button class="btn btn-primary"></button>
-    </div>
-  </div>
-</div> -->
