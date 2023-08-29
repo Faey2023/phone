@@ -1,29 +1,25 @@
-const loadPhone = (searchText = `13`) => {
+const loadPhone = (searchText, isShowAll) => {
   fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`)
     .then((res) => res.json())
-    .then((data) => displayPhones(data.data));
+    .then((data) => displayPhones(data.data, isShowAll));
 };
-// const loadPhone = async (searchText = `13`) => {
-//   const res = await fetch(
-//     `https://openapi.programming-hero.com/api/phones?search=${searchText}`
-//   );
-//   const data = await res.json();
-//   const phones = data.data;
-// };
-const displayPhones = (phones) => {
+
+const displayPhones = (phones, isShowAll) => {
   const phoneContainer = document.getElementById("phone-container");
 
   //clear search bar
   phoneContainer.textContent = "";
   //show all button
   const showAll = document.getElementById("show-all");
-  if (phones.length > 9) {
+  if (phones.length > 12 && !isShowAll) {
     showAll.classList.remove("hidden");
   } else {
     showAll.classList.add("hidden");
   }
-  //slice displays only 1st 9
-  phones = phones.slice(0, 9);
+  //slice displays only 1st 12 if not show all
+  if (!isShowAll) {
+    phones = phones.slice(0, 12);
+  }
   phones.forEach((phone) => {
     // console.log(phone);
     const phoneCard = document.createElement("div");
@@ -47,12 +43,12 @@ const displayPhones = (phones) => {
 };
 
 //handle search button
-const handleSearch = () => {
+const handleSearch = (isShowAll) => {
   toggleLoadingSpinner(true);
   const searchField = document.getElementById("search-field");
   const searchText = searchField.value;
   console.log(searchText);
-  loadPhone(searchText);
+  loadPhone(searchText, isShowAll);
 };
 
 const toggleLoadingSpinner = (isLoading) => {
@@ -63,16 +59,11 @@ const toggleLoadingSpinner = (isLoading) => {
     loadingSpinner.classList.add("hidden");
   }
 };
-//
+// handle dhow all
 const handleShowAll = () => {
-  handleSearch();
+  handleSearch(true);
 };
-// const handleShowDetailAll = (id) => {
-//   //   load single phone data
-//   fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
-//     .then((res) => res.json())
-//     .then((data) => console.log(data));
-// };
+
 const handleShowDetailAll = async (id) => {
   // load single phone data
   const res = await fetch(
